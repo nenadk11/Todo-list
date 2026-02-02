@@ -1,4 +1,4 @@
-<?
+<?php
 $host = "localhost";
 $dbname = "task_list";
 $username = "root";
