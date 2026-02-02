@@ -9,10 +9,10 @@ document.getElementById("taskForm").addEventListener("submit", async (e) => {
         return;
     }
 
-    const res = await fetch("http://localhost/backend/api/tasks.php", {
+    const res = await fetch("http://localhost:8000/backend/api/tasks.php", {
         method: "POST",
         headers: {
-            "Content-Type":"application/json"
+            "Content-Type": "application/json"
         },
         body: JSON.stringify({ task })
     });
