@@ -6,7 +6,7 @@ form.addEventListener("submit", async (e) => {
 
     const username = form.elements["name"].value.trim();
     const email = form.elements["email"].value.trim();
-    const password = form.elements["password"].value.trim();
+    const password = form.elements["password"].value;
 
     if(!username || !email || !password){
         alert("All fields are required");

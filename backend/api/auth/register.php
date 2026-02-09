@@ -8,7 +8,7 @@ $data = json_decode(file_get_contents("php://input"), true);
 
 $username = trim($data["username"]);
 $email = trim($data["email"]);
-$password = trim($data["password"]);
+$password = $data["password"];
 
 //Provera da li je username prazan ili ima space
 if(empty($username) || preg_match('/\s/', $username)){
