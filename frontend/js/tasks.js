@@ -3,7 +3,7 @@ window.addEventListener("DOMContentLoaded", loadTasks);
 
 async function loadTasks() {
 
-    const res = await fetch("http://localhost:8000/backend/api/tasks.php");
+    const res = await fetch("http://localhost:8000/backend/api/tasks/tasks.php");
     const tasks = await res.json();
 
     const list = document.getElementById("taskList");
@@ -40,7 +40,7 @@ document.getElementById("taskForm").addEventListener("submit", async (e) => {
         return;
     }
 
-    await fetch("http://localhost:8000/backend/api/tasks.php", {
+    await fetch("http://localhost:8000/backend/api/tasks/tasks.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -59,7 +59,7 @@ document.getElementById("taskForm").addEventListener("submit", async (e) => {
 //funkcija za brisanje taska
 async function deleteTask(id) {
     
-    await fetch("http://localhost:8000/backend/api/tasks.php", {
+    await fetch("http://localhost:8000/backend/api/tasks/tasks.php", {
         method: "POST",
         headers: {
             "Content-type": "application/json"
@@ -76,7 +76,7 @@ async function deleteTask(id) {
 //funkcija za zavrsetak taska
 async function toggleTask(id){
 
-    await fetch("http://localhost:8000/backend/api/tasks.php", {
+    await fetch("http://localhost:8000/backend/api/tasks/tasks.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
