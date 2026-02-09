@@ -62,7 +62,7 @@ async function deleteTask(id) {
     await fetch("http://localhost:8000/backend/api/tasks/tasks.php", {
         method: "POST",
         headers: {
-            "Content-type": "application/json"
+            "Content-Type": "application/json"
         },
         body: JSON.stringify({
             action: "delete",
