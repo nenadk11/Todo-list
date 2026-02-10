@@ -13,7 +13,7 @@ form.addEventListener("submit", async (e) => {
 
     //Slanje inputa backendu
     try {
-        const res = await fetch("http://localhost:8000/backend/api/auth/login.php", {
+        const res = await fetch("/backend/api/auth/login.php", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

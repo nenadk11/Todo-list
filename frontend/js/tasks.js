@@ -15,7 +15,7 @@ import { checkAuth } from "./auth.js";
     //GET - za ucitavanje taskova iz backenda
     async function loadTasks() {
         try {
-            const res = await fetch("http://localhost:8000/backend/api/tasks/tasks.php");
+            const res = await fetch("/backend/api/tasks/tasks.php");
             const tasks = await res.json();
 
             list.innerHTML = "";
@@ -74,7 +74,7 @@ import { checkAuth } from "./auth.js";
         }
 
         try {
-            await fetch("http://localhost:8000/backend/api/tasks/tasks.php", {
+            await fetch("/backend/api/tasks/tasks.php", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -95,7 +95,7 @@ import { checkAuth } from "./auth.js";
     //funkcija za brisanje taska
     async function deleteTask(id) {
         try {
-            await fetch("http://localhost:8000/backend/api/tasks/tasks.php", {
+            await fetch("/backend/api/tasks/tasks.php", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -115,7 +115,7 @@ import { checkAuth } from "./auth.js";
     //funkcija za zavrsetak taska
     async function toggleTask(id){
         try {
-            await fetch("http://localhost:8000/backend/api/tasks/tasks.php", {
+            await fetch("/backend/api/tasks/tasks.php", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

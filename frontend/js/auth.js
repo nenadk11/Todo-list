@@ -1,6 +1,6 @@
 export async function checkAuth() {
     try {
-        const res = await fetch("http://localhost:8000/backend/api/auth/checkAuth.php");
+        const res = await fetch("/backend/api/auth/checkAuth.php");
         const data = await res.json();
         
         if(!data.loggedIn){
