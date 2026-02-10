@@ -24,6 +24,16 @@ form.addEventListener("submit", async (e) => {
         return;
     }
 
+    if (password.length < 8) {
+        alert("Password must be at least 8 characters");
+        return;
+    }
+
+    if (username.length < 4 || username.length > 20) {
+        alert("Username must be between 4 and 20 characters long");
+        return;
+    }
+
     //Slanje inputa backendu
     try {
         const res = await fetch("http://localhost:8000/backend/api/auth/register.php", {

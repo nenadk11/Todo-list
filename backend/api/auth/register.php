@@ -29,8 +29,21 @@ if(empty($email) || empty($password)){
     exit;
 }
 
+//Provera da li se confirm password i password slazu
 if($password !== $confirmPassword){
     echo json_encode(["success" => false, "message" => "Passwords do not match"]);
+    exit;
+}
+
+//Provera da li je sifra dovoljno dugacka
+if(strlen($password) < 8){
+    echo json_encode(["success" => false, "message" => "Password must be at least 8 characters"]);
+    exit;
+}
+
+//Provera da li je duzina usernamea dobra
+if(strlen($username) < 4 || strlen($username) > 20){
+    echo json_encode(["success" => false, "message" => "Username must be between 4 and 20 characters long"]);
     exit;
 }
 
