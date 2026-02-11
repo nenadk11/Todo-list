@@ -4,7 +4,7 @@ export async function checkAuth() {
         const data = await res.json();
         
         if(!data.loggedIn){
-            window.location.href = "/login.html";
+            window.location.href = "login.html";
             return null;
         }
 
@@ -12,6 +12,6 @@ export async function checkAuth() {
         
     }catch (err) {
         console.error("Auth error", err);
-        window.location.href = "/login.html";
+        window.location.href = "login.html";
     }
 }
