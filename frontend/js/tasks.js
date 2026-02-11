@@ -6,6 +6,8 @@ import { checkAuth } from "./auth.js";
 
     console.log("Logged user:", user);
 
+    let unfinishedTasksCount = 0;
+
     const list = document.getElementById("taskList");
     const form = document.getElementById("taskForm");
     const taskInput = document.getElementById("taskInput");
@@ -17,6 +19,8 @@ import { checkAuth } from "./auth.js";
         try {
             const res = await fetch("/backend/api/tasks/tasks.php");
             const tasks = await res.json();
+
+            unfinishedTasksCount = tasks.filter(t => t.status !== "completed").length;
 
             list.innerHTML = "";
 
@@ -38,6 +42,15 @@ import { checkAuth } from "./auth.js";
                 `;
                 list.appendChild(li);
             });
+
+            const clearBtn = document.getElementById("clear-all-btn");
+
+            if(tasks.length >= 2){
+                clearBtn.style.display = "block";
+            }else {
+                clearBtn.style.display = "none";
+            }
+
         } catch(err) {
             console.error("Error loading tasks:", err);
         }
@@ -131,5 +144,35 @@ import { checkAuth } from "./auth.js";
             console.error("Error toggling task:", err);
         }
     }
+
+    async function clearAllTasks(){
+
+        let message = "Delete all tasks?";
+
+        if(unfinishedTasksCount > 0){
+            message = `You have ${unfinishedTasksCount} unfinished task${unfinishedTasksCount > 1 ? "s" : ""}. Are you sure you want to delete all tasks?`;
+        }
+
+        if(!confirm(message)) return;
+
+        try {
+            await fetch("/backend/api/tasks/tasks.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    action: "clear_all"
+                })
+            });
+
+            await loadTasks();
+        }catch(err) {
+            console.error("Error clearing all tasks", err);
+        }
+    }
+
+    document.getElementById("clear-all-btn").addEventListener("click", clearAllTasks);
+
 
 })();

@@ -79,5 +79,15 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
             echo json_encode(["success" => true]);
         }
     }
+
+    //Action clear all - obrisi sve taskove
+    if($data["action"] == "clear_all"){
+        
+        $stmt = $pdo->prepare("DELETE FROM tasks");
+        $stmt->execute();
+
+        echo json_encode(["success" => true]);
+    }
+
 }
 ?>
