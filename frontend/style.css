@@ -3,7 +3,7 @@
     --primary-dm-font-color: #F1F5F9;
     --primary-dm-container-color: #0F172A;
     --button-dm-color: #38BDF8;
-    --primary-bg-color: #F8FAFC;
+    --primary-bg-color: #f0f2f5;
     --primary-font-color: #0F172A;
     --primary-container-color: #E2E8F0;
     --button-color: #0EA5E9;
@@ -34,8 +34,8 @@ body {
 .container {
     padding: 20px;
     background-color: var(--primary-container-color);
-    border-radius: 4px;
-    width: 25%;
+    border-radius: 30px;
+    max-width: 1400px;
 }
 
 h1{
