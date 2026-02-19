@@ -16,15 +16,16 @@
 
 * {
     box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
 }
 
 body {
-    padding: 0px;
-    margin: 0px;
     background-color: var(--primary-bg-color);
     color: var(--primary-font-color);
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     min-height: 100vh;
+    padding: 40px 20px;
     height: 75vh;
     display: flex;
     align-items: center;
@@ -32,10 +33,42 @@ body {
 }
 
 .container {
-    padding: 20px;
+    margin: 0 auto;
+    padding: 40px;
     background-color: var(--primary-container-color);
     border-radius: 30px;
     max-width: 1400px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 30px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    grid-column: 1/-1;
+}
+
+.header-icons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.icon-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--primary-bg-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
 }
 
 h1{
